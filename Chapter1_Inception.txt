@@ -1,0 +1,20 @@
+->will the order of file matter?
+It will throw an error.If we change the order of the 
+files in index.html then it will call React is not defined
+
+->what is crossorign?
+
+
+When you render the root in javascript, it updates 
+it in HTML quickly
+
+Even if you have mentioned something in the HTML,it will get replaced
+
+The browser 1st reads the whole HTML and after it will read the script tag in which our .js file is present.
+Then it will render the whole root...It will replace everything in root. IT WILL REPLACE NOT APPENDED !!! 
+
+-> React can be applied to small portion of a page also.That's an advantage of it being a library
+
+-> Order of file matters a lot and what is root where we are rendering stuff
+
+->React is a library, not a full flegeded framework

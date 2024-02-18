@@ -1,0 +1,81 @@
+-React alone is not making our App fast
+-There are a lot of other things that contribute in making our React App Faster
+-Npm basically is a standard repo for most of the packages
+-Mostly all of the packages are hosted on Npm. Npm manages all these packages
+
+-package.json is a configuration of NPM 
+-Our project is dependent on packages(dependencies)
+-Npm will take care of version of the package. It will take care here at package.json
+
+
+What is a bundler
+- bundler packages our app properly so that it can be shipped to production
+- create-react-app uses web pack & babel behind the scenes
+
+
+PARCEL
+- It is a bundler
+- Dev dependencies: It is generally req for development phase.
+- Normal dependencies: It is used on production also
+
+# Difference b/w Dev and Development dependency
+
+- ^ this is carot and ~ this is tilde
+- Carot: Parcel will automatically update its version
+- Tilda: It will update major version automatically 
+
+- Always it is safe to update minor-minor updates, rather than a sudden major update 
+
+Package lock.json keeps exact record of each version updates happening. It keeps track of all the version of all the dependencies
+
+integrity - it is a hash. 
+
+-Since we only installed parcel. But along with it all, the other packages got installed. Its because our project has dependency on parcel. But parcel itself has dependency on many other packages, thats why other packages also
+
+- Node modules is like a database for all our dependencies
+
+- We don't push node modules to git because 1st of all its very heavy and 2nd we can recreate it again using our package and package-lock.json. So package & pacakge-lock.json are very imp files. So we need to push these 2 to git
+
+- NPM and NPX 
+NPM-This command is used to install
+NPX-Run/Execute some package
+
+- We can get react into our app by 2 ways
+1. Using CDN links
+2. Using NPM (Best way)
+
+- We have to keep changing our CDN url because react keep getting update. So it is not feasible to update it again and again 
+
+
+-WHAT DOES PARCEL DO ?  
+1. Dev Build
+2. Local Server
+3. HMR (Hot Module Replacement)
+4. File Watching Algorithm written in C++ 
+5. Because of caching it gives us fast built. It caches in .parcel-cache (binary files)
+6. Image optimization
+7. Minification of files
+8. Compress our files
+9. Consistent Hashing
+10. Code splitting
+11. Differential Bundling
+12. Diagnostic
+13. Error Handling
+14. HTTPS
+15. Tree Shaking - remove unused code
+16. Different dev and prod bundles 
+
+
+-When we write npx parcel build, parcel generates a development build of project and hosts on 1234. This developement build of project is put up in dist folder.
+
+- You have to put dist and .parcel-cache on git 
+
+local => Github => Server(deploy)
+
+- Server fetches code from Github. Server will now 
+host this app to end user. It will have package file,
+it will call npm install and install the node_modules.
+
+- Server node_modules will be same exactly as local node_modules BUT THEY ARE NOT SAME. 
+
++++++++++++++++++ READ PARCEL DOCUMENTATION +++++++++++++++++++

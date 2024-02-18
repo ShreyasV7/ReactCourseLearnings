@@ -1,0 +1,24 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShreyasV7/ReactCourseLearnings.git"
+  },
+  "keywords": [],
+  "author": "Shreyas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShreyasV7/ReactCourseLearnings/issues"
+  },
+  "browserslist":[
+    "last 2 Chrome version",
+    "last 2 Firefox version"
+  ],
+  "homepage": "https://github.com/ShreyasV7/ReactCourseLearnings#readme"
+  
+}

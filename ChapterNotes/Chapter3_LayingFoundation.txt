@@ -1,1 +1,49 @@
--
+- Start script is to run dev
+- Build script is to run production
+
+React.createElement=>it creates an object behind the scene.When it gets render inside the DOM, it becomes HTML Element 
+
+
+JSX - Javascript syntax which is easier to create react elements
+
+-JSX is not a part of REACT. JSX and REACT both are seperate.
+
+-We can write REACT without JSX using simple JS. But it's syntax is not developer friendly. You need to write code like this.
+
+//////////////////////////////////////////////////////////////////
+Eg:
+const heading = React.createElement("h1", { id: "heading" }, "Namaste Shreyas Vishwakarma");
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(heading); 
+////////////////////////////////////////////////////////////////////
+
+
+- JSX IS NOT HTML INSIDE JAVASCRIPT !
+- const jsxheading = <h1>Helloji, Shreyas Vishwakarma</h1> it is not HTML, it is JSX 
+- It just looks like HTML or XML
+- 
+
+
+- We write code for both machines and humans.
+But 1st for Humans and then machines.This code will be read by a lot of developers.
+- Machine can understand both i,j and vExtend,vDate.But at human level, i & j doesn't sound good
+
+
+
+- JSX code is transpiled (converted to the code that Browser/React can understand) before it reaches the JS engine.
+
+- Transpilling by PARCEL. Babel exists inside Parcel. It does the above job
+
+
+
+- React.createElement => ReactElement-JS Object => HTML Element (render)
+
+Eg:
+const heading = React.createElement("h1", { id: "heading" }, "Namaste Shreyas Vishwakarma");
+
+
+- JSX => React.createElement => ReactElement-JS Object => HTML Element (render)
+
+Eg:
+const jsxHeading = <h1>This is Shreyas form JSX</h1>;
+console.log(jsxHeading);

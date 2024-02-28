@@ -1,24 +1,19 @@
-
-/*
-  <div id="parent">
-    <div id="child">
-       <h2> This is Shreyas</h2>
-    </div>
-   </div>
-*/
-
 import React from "react";
-import ReactDOM from "react-dom/client"; 
+import ReactDOM from "react-dom/client";
 
 
-const heading = React.createElement("div",{id:'parent'},
-   React.createElement("div",{id:'child'},
-     React.createElement("h1",{},"I'm Shreyas Vishwakarma"),
-      React.createElement("h2", {}, "I'm Brave Browser")
-   )
-) ;  
-const root = ReactDOM.createRoot(document.getElementById("root")) ; 
+// React Element
+
+const heading = React.createElement("h1", { id: "heading" }, "Namaste Shreyas Vishwakarma");
 
 console.log(heading) ; 
 
-root.render(heading)  ;
+// JSX
+
+const jsxHeading = <h1>This is Shreyas form JSX</h1>;
+console.log(jsxHeading);
+
+let root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(jsxHeading);
+
+

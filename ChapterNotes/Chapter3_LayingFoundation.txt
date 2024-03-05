@@ -30,6 +30,14 @@ But 1st for Humans and then machines.This code will be read by a lot of develope
 
 
 
+
+
+
+
+
+
+**************************       BABEL       ***************************** 
+
 - JSX code is transpiled (converted to the code that Browser/React can understand) before it reaches the JS engine.
 
 - Transpilling by PARCEL. Babel exists inside Parcel. It does the above job
@@ -47,3 +55,122 @@ const heading = React.createElement("h1", { id: "heading" }, "Namaste Shreyas Vi
 Eg:
 const jsxHeading = <h1>This is Shreyas form JSX</h1>;
 console.log(jsxHeading);
+
+- It is another important package after Parcel
+
+
+*********************************************************************************************
+
+- If you have to give attributes to JSX, we have to use CAMEL CASE. 
+Eg: const jsx = <h1 className="head" tabIndex="4"> Namaste Shreyas </h1>
+
+
+
+
+
+
+### COMPONENTS
+1. Class based Components - Old way 
+2. Functional Component - New way 
+
+
+React Functional Component
+- Its a normal JS function which returns a JSX 
+- let heading=()=>{
+       return <h2>Shreyas1</h2> 
+}
+
+let heading2=()=>{
+       <h2>Shreyas2</h2> 
+}
+
+The above both codes are same
+
+- JSX can be nested 
+- We cannot render like this root.render(heading2). This is wrong, because it is not a react element, its a functional component. 
+We can render it like this root.render(<heading2/>)
+
+- root.render converts into HTML and browser renders it. 
+
+- This is component composition
+Eg: 
+const JsxHeading = () => {
+       return <>
+              <h1 className="head">
+                     This is Shreyas from Jsx Heading
+              </h1>
+       </>
+}
+//console.log(jsxHeading);
+
+const HeadingComponent = () => {
+       return <>
+              <JsxHeading />
+              <h2 className="heading">This is Shreyas from Component</h2>
+       </>       
+}
+
+
+let root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<HeadingComponent />);
+
+
+- We can inject any js code inside jsx by using this {}
+Eg:
+  const number = 10004; 
+  <div id="container">
+     <h2>{number}</h2> 
+  </div>
+
+-Eg: 
+const Component2 = () => {
+       return <>
+              <Component1 />
+              <h3>This is Component 2</h3>
+       </>
+}
+
+const Component1 = () => {
+       return <>
+              <Component2 />
+              <h3>This is Component 1</h3>
+       </>
+}
+
+This will go into an infinte loop, 
+
+
+- const data = api.getData()
+const HeadingComp=()=>{
+       <div id="container">
+         {data}
+       </div> 
+}
+
+- Suppose this api.getData() is giving some malicous data, and this data will get executed in our component, basically it will 
+get executed in our browser. This is called Cross site scripting
+
+- JSX takes care of these type of these injection patterns
+- JSX won't blindly run it, it will sanitize the data. 
+
+
+############### MIND BLOWING THING HERE BC #################
+
+At the end of the day, functional component is a simple Javascript function.
+
+So, we can do this
+const Component2 = () => {
+       return <>
+
+              <h3>This is Component 2</h3>
+       </>
+}
+
+const Component1 = () => {
+       return <>
+              {Component2()}  (Imp stuff)
+              <h3>This is Component 1</h3>
+       </>
+}
+
+- JSX is not REACT. JSX makes code readable

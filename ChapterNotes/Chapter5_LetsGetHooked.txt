@@ -1,0 +1,37 @@
+- Best practice in the industry is to make seperate files for seperate components
+- In the src folder, all sources files are present
+- Make a seperate file for seperate components. 
+
+
+- Every thing we do in React can also be done in HTML,CSS,JS. Then why react ??? 
+1. It makes developer exp easy.
+2. Write less code, do more on Web Page.
+3. React makes better coding exp and optimizes it efficently
+
+
+- Never keep hardcoded stuff into components file
+KEEP IT SIMPLE
+
+- All the utilities are kept in Utils folder
+
+
+- There are 2 types of export and 2 types of import
+
+1. Named export/import 
+  - To export multiple things
+  - Just wirte "export" infront of const to export 
+  - Write "import { CDN_URL } from "../utils/constants" to import stuff from other files
+  - For default export, we don't use {}
+
+
+2. Default export/import 
+  - It will export only 1 single constant during export 
+  - And in innport no {} are required
+
+
+Q. Can i use default export along with a named export ? 
+
+
+* REACT HOOKS
+
+

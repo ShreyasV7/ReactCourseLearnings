@@ -1,0 +1,59 @@
+Header
+ - Logo
+ - Nav Items
+
+Body
+ - Search
+ - RestaurantContainer
+   - Restaurant Card
+
+Footer
+ - Copyright
+ - Links
+ - Address 
+ - Contact information
+
+
+ Style in react takes it as a JS object
+ <div className='res-card' style={}>
+ </div>
+
+ - Props are passing an argument to a Component
+ - React will take all the props and wrap it inside an object, and pass over as (props)=>{}
+
+ - De-structuring on Fly method
+
+ Eg:
+ const Restaurant=({resName,cuisine}=>{
+  
+  return (
+    <h2>{resName}<h3>
+    <h2>{cuisine}<h3>
+  )
+
+ })
+
+ - Destructing is simple plain JS, React is not doing any cool stuff
+
+ - Config Driven UI (helpful in System Design interviews)
+   -Controlling the UI on how it looks using Data, using a config. This config comes from Backend.
+   Eg: Swiggy Mumbai has different UI and Swiggy Banglore has different UI 
+   -All the whole UI is driven by Config.
+   -You should always build config driven UI 
+   -A good senior frontend engineer is good in both UI layer and Data layer
+
+
+
+- OPTIMZATION
+1. Learn de-structuring
+
+=> You always have to give a key
+WHY ?? 
+- Without key it will treat all components same at DOM level. So it will re-render it over and over all components
+-If id is mentioned for each component, then it will get exactly to know which component to be rendered properly
+- It takes a BIG PERFORMANCE HIT, If you don't write keys
+- React's official doc, says DON'T USE INDEXES(0,1,2...) AS KEYS
+- Read blog on Robin Pokorny on INDEX AS A KEY PATTERN
+- Using INDEX is Not RECOMMENDED. We can use, it but its better to use KEY.
+- not using keys (not acceptable) <<<<< index as key
+<<<<< unique id (best practice)

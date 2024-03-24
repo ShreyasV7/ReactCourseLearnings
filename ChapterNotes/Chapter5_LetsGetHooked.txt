@@ -31,7 +31,76 @@ KEEP IT SIMPLE
 
 Q. Can i use default export along with a named export ? 
 
+- Event handler in JS (read it)
+- onClick is an attribute, it takes a callback function. 
+It will be called on click.
 
-* REACT HOOKS
+-map filter reduce video in NamasteJS
+-React does DOM manipulation faster
+-The mock data which we are using, we can write it inside our component as well as outside of our component. 
+
+Eg:
+1.
+ const Body=()=>{
+   let mockData=[....]; 
+   return(....); 
+ }; 
+ export default Body ;
+
+
+2. 
+ let mockData=[....]; 
+ const Body=()=>{
+   return(....); 
+ }; 
+
+ export default Body ;
+
+
+Both of the above works
+
+- React Element at the end of the day is a JS object
+
+
+
+
+
+
+
+
+
+
+
+************  REACT HOOKS *******************
+
+- They are normal JS utility functions
+- written by FB developers
+- They have written inside React 
+
+
+1. useState => super powerful variable provided by React 
+- It is a named export from react 
+- const [list,setList]=useState([default values, if any]); 
+- It only works inside component, not outside
+- Whenever, a state variable updates react re-renders the component (imp)
+
+- REACT IS GOOD AT DOM OPERATIONS,THAT'S WHY IT RENDERS FAST. It doesn't do NO MINIFY,BUNDLING ALL THESE STUFF
+
+- React creates an object out of <Body/>. This object is basically,
+REACT VIRTUAL DOM. It is nothing but normal JS object
+
+- Read about React Fiber,Diff algorithm, virtual dom (vvvimp)
+
+- What is Virtual dom...It is basically, dom which we see those 
+tags and Elements. Its JS represnetation of it.It existed way before, react just made it popular.
+
+-React took this and built its alogirthm over virtual dom. 
+- useState returns an array
+-const [bestRes, setBestRes] = useState(resList) this is array 
+destructuring
+arr[0]=bestRes, arr[1]=setBestRes
+destructuring it on fly 
+
+2. useEffect=> 
 
 

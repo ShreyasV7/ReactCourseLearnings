@@ -6,7 +6,6 @@ const RestaurantCard = (props) => {
        const { resObj } = props;
 
        const { cloudinaryImageId, name, cuisines, avgRating, slaString } = resObj?.info;
-       console.log(resObj);
 
        return (
               <div className="res-card" style={styleCard}>

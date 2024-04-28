@@ -1,0 +1,139 @@
+- Monolith,Microservice Architecture
+
+1. Monolith:
+- Early practice
+- Inside application,we use to have
+API,UI,Auth,DB,SMS code
+
+
+
+2. Microservice
+- Seperation of concerns and single reposibility principle
+- All the services run on their own specific ports
+- Eg: port-1234 => UI service 
+      port-1000 => Backend service 
+      port-3000 => SMS serivce 
+
+- How these serivces interact ? 
+Ans: They will call with an API. Suppose, UI wants to connect API 
+it will call '/api' URL. That's how these services are connected
+
+       
+HOW FRONTEND APPROACHES THE BACKEND ? 
+1.     
+
+
+
+1. UseEffect
+- Its a normal function
+- It has a call back function and a dependency array
+- This useEffect will be called after your component renders
+- If we need to do something after rendering of the component, we have to 
+write it inside useEffect
+- console.log() will print 1st, then the component and then useEffect.
+- Used to call api 
+- fetch() function is a functionality given us by Browsers 
+
+
+=> CORS Policy
+Our browser is not allowing us to call one origin(Swiggy) to another origin(Local host) 
+
+- To bypass the cors 
+- Akshay saini cors video
+- Optional Chaining (Js concept)
+
+- When you refresh the page, you will see blank stuff...If you check in console, <body/> was there it was just empty and not rendered
+
+
+
+#SHIMMER UI
+- Showing fake page till the data is loaded
+- In the today's world its a better user experience
+- It makes a psychologoical effect on user
+- Rendering on the basis of condition is called Conditinal Rendering
+
+
+(Important Concept)
+
+# WHY DO WE NEED STATE VARIABLES, WHY CAN'T WE USE JUST NORMAL JS VARIABLES ?
+- Suppose we create a login and logout button
+- Suppose we have below is the code for login/logout 
+------------------------------------------------------------------------------------------------------------
+Eg: 
+ let btnInOut = 'Login'; 
+
+       return (
+              <div className="header">
+                     <div className="logo-container">
+                            <img
+                                   className="logo"
+                                   src={LOGO_URL}
+                            />
+                     </div>
+
+                     <div className="nav-items">
+                            <ul>
+                                   <li>Home</li>
+                                   <li>About</li>
+                                   <li>Contact Us</li>
+                                   <li>Cart</li>
+                                   <button className="login" onClick={() => {
+                                          btnInOut = 'Logout'
+                                          console.log(btnInOut);
+                                   }}>{btnInOut}</button>
+                            </ul>
+                     </div>
+              </div>
+       );
+
+----------------------------------------------------------------------------------------------------------------
+
+- In the above code, if you click on button in Browser, the Login button remains the same. The variable btnInOut has been updated to 'Logout' but it doesn't reflect on UI
+
+- Because the component didn't got rendered again, if it could have rendered. You could have seen the change.
+
+- This is why JS variable does not work. If you want to make your component dynamic, we use state variables 
+
+- WHENEVER STATE VARIABLE CHANGES, REACT RE-RENDERS THE COMPONENT & UPDATES THE VARIABLE. That's why we have different setX in state variable. As soon as React encounters it gets to know to re-render the component.
+
+
+(Important Concept)
+=> USE STATE is begin used with const variable and how come a const variable can get updated ??? 
+
+Ans: 
+- Rendering - Trigger/Calling the components again with updated values 
+- useState also has updated value
+- Whenever variable gets update, react re-renders the whole component once again. But this time, a new variable takes birth. This new variable is different from the one before. React is keeping a track of everything
+- As soon as re-rendering starts, btnLogin value gets updated. React compares the new Component with the older(Virtual DOM) one version...It sees that Home,About,Contact Us everything is same (New Virtual DOM). Only change is in the button.
+
+
+
+=> HOW TO MAKE INPUT BOX WORK 
+
+1. We have to bind the input box with a useState by using value handler
+
+2. We have to use OnChange handler because as soon as my input changes, useState also should change
+
+Eg:
+<input
+	type="text"
+	className="search-box"
+	value={searchText}
+	onChange={(event) => {
+              setSearchText(event.target.value);
+	}}
+/> 
+
+
+==> WHENEVER YOU ARE TYPING IN THE INPUT BOX, THE REACT IS RE-RENDERING THE WHOLE BODY COMPONENT. Suppose if you write, Cafe in Input Box 
+
+C 
+-> Body will reder 
+Ca 
+-> Body will reder
+Caf 
+-> Body will reder
+Cafe 
+-> Body will reder
+
+=> REACT DOES THIS RENDERING,DOM MANIPULATION VERY VERY FAST

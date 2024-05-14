@@ -6,6 +6,7 @@ import Shimmer from "./Shimmer";
 
 const Body = () => {
 	const [bestRes, setBestRes] = useState([]);
+	const [filterRes,setFilterRes]=useState([]); 
 	const [searchText, setSearchText] = useState("");
 
 	useEffect(() => {
@@ -22,14 +23,17 @@ const Body = () => {
 		let jsonData = await data.json();
 		console.log(jsonData);
 		setBestRes(
-			jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-				?.restaurants
+			jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
 		);
+
+		setFilterRes(jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+		); 
 	};
 
 	// Conditional Rendering
 
 	console.log("Body Rendered");
+	//console.log(bestRes);
 
 	return bestRes.length == 0 ? (
 		<Shimmer />
@@ -41,13 +45,19 @@ const Body = () => {
 						type="text"
 						className="search-box"
 						value={searchText}
-						onChange={(event) => {
-							setSearchText(event.target.value);
+						onChange={(e) => {
+							setSearchText(e.target.value);
 						}}
 					/>
 					<button
 						onClick={() => {
-							console.log(searchText);
+							console.log(searchText)
+							let filteredRes = bestRes.filter(
+								(r) => r.info.name.toLowerCase().includes(searchText.toLowerCase())
+
+							);
+							
+							setFilterRes(filteredRes);
 						}}
 					>
 						Search
@@ -58,18 +68,17 @@ const Body = () => {
 					className="filter-btn"
 					onClick={() => {
 						let filteredList = bestRes.filter(
-							(res) => res.info.avgRating > 4.5
+							(res) => res.info.avgRating > 4
 						);
-						setBestRes(filteredList);
+						setFilterRes(filteredList);
 						//console.log(bestRes)
 					}}
 				>
-					{" "}
 					Top Rated Restaurants
 				</button>
 			</div>
 			<div className="res-container">
-				{bestRes.map((restaurant, index) => (
+				{filterRes.map((restaurant, index) => (
 					<RestaurantCard key={index} resObj={restaurant} />
 				))}
 			</div>

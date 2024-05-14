@@ -137,3 +137,7 @@ Cafe
 -> Body will reder
 
 => REACT DOES THIS RENDERING,DOM MANIPULATION VERY VERY FAST
+=> React is re-rendering the whole body component but it is only updating input box value inside the DOM 
+
+=> REACT is FAST Because first of all virtual dom is not making it fast. React's fibre and reconsiliation algorithm which finds out the differnence b/w two virtual dom and updates the dom only. And only the portion of dom required. That is why React is Fast. 
+

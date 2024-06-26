@@ -1,0 +1,117 @@
+# Different pages for different URL 
+
+- useEffect will be called everytime after the component rendering 
+
+- The dependency array in useEffect, it changes the behaviour of its render. 
+
+- If no dependency array => useEffect called on every compoent render 
+
+- If dependency array is empty => useEffect is called ONLY on inital render 
+(just once)
+
+- If dependency is array is => useEffect is called everytime whatever is mentioned is updated
+
+
+#useState 
+- It is used for creating local state variables inside functional component
+
+
+
+
+
+
+
+# createBrowserRouter
+- Here we specify all the routes with components assciated with it. 
+
+Eg: 
+const appRouter=createBrowserRouter([
+   {
+        path: "/",
+        element: <AppLayout />,
+        errorElement: <Error />,
+    },
+])
+
+
+
+
+
+
+# RouterProvider
+- It will provide the routing configuration to our app 
+- Exported from react router dom 
+- It gives access to important hook which is useRouteError (it gives more info about the error)
+
+
+
+
+
+
+# CHILDREN ROUTE 
+- If under 1 compoent i want mutliple components to show up like a tree 
+- const appRouter=createBrowserRouter([
+   {
+        path: "/",
+        element: <AppLayout />,
+        childre:[
+          {
+            path:.......
+          },
+          {
+            path:......
+          }
+        ],
+        errorElement: <Error />,
+    },
+])
+
+- Outlet is a component, which is used for the above in process 
+- Wherever, this <Outlet/> will be present. If there is a change in the path, it will be filled (<Outlet/> component) according to path 
+
+- Never use anchor tag in react. Because it reloads the whole page. In react, we can navigate to new page without reloading 
+
+- To implement above we will use LINK COMPONENT, which is given by react-router-dom 
+Eg:
+<Link to="/">Home</Link>
+<li>
+  <li>
+    <Link to="/about">About</Link>
+  </li>
+  <li>
+    <Link to="/contact">Contact Us</Link>
+  </li>
+</li>
+
+- Link compoent just refreshes the component rather than reloading the component
+
+- THAT'S WHY OUR REACT APPLICATIONS ARE CALLED SINGLE PAGE COMPONENT. 
+
+
+
+
+
+- There are 2 types of routing: 
+1. Client side routing 
+2. Server side routing 
+
+A. Server side routing 
+- In this, the whole page gets reloaded whenever you move on to about,contact us page. 
+
+- It basically sends request to server and brings back whatever is need by reloading the page 
+
+
+B. Client side routing 
+- In this, we have a single page appilcation and all the rendering happens at client side 
+
+
+
+
+{
+  path:'/restaurants/:restaurantId',
+  element 
+}
+
+- In the above, :restaurantId is dynamic, our routes will be unique.
+
+

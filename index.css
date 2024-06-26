@@ -74,3 +74,9 @@
 .filter{
        display: flex;
 }
+
+.item-Cards{
+       color: 'inherit';
+       text-decoration: 'none';
+}
+

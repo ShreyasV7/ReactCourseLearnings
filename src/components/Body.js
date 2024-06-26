@@ -3,6 +3,7 @@ import resList from "../utils/mockdata";
 import { useEffect, useState } from "react";
 import resList from "../utils/mockdata";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
     const [bestRes, setBestRes] = useState([]);
@@ -42,6 +43,7 @@ const Body = () => {
 
     console.log("Body Rendered");
     //console.log(bestRes);
+    console.log(filterRes);
 
     return bestRes.length == 0 ? (
         <Shimmer />
@@ -88,7 +90,13 @@ const Body = () => {
             </div>
             <div className="res-container">
                 {filterRes.map((restaurant, index) => (
-                    <RestaurantCard key={index} resObj={restaurant} />
+                    <Link
+                        style={{ textDecoration: "none", color: "inherit" }}
+                        key={restaurant.info.id}
+                        to={"/restaurants/" + restaurant.info.id}
+                    >
+                        <RestaurantCard resObj={restaurant} />
+                    </Link>
                 ))}
             </div>
         </div>
